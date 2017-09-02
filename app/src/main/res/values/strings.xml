@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Camera2Test</string>
+    <string name="start_test_device">Analyze</string>
+    <string name="permission_request">Camera2Test application needs camera permission</string>
+    <string name="send_to_dev">Share</string>
+    <string name="email_subject">Device info:</string>
+    <string name="label_camera">Camera identifier</string>
+    <string name="label_camera_key">Camera2 API key</string>
+    <string name="label_camera_key_result">Result:</string>
+    <string name="text_feature">Key mode</string>
+    <string name="text_full">Full mode</string>
+    <string name="text_info">Information</string>
+    <string name="text_analyze">Analyze</string>
+
+    <string name="label_key_description">Description:</string>
+    <string name="no_doc_found">Can\'t retrieve documentation.</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="privacy_policy">Privacy policy</string>
+</resources>

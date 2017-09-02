@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/AppLabelStyle"
+            android:layout_marginTop="0dp"
+            android:text="@string/label_camera" />
+
+        <RelativeLayout
+            style="@style/AppUIElementStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp">
+
+            <Spinner
+                android:id="@+id/camera_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/camera_drop_doen_arrow"
+                android:background="@android:color/white"
+                android:drawSelectorOnTop="false" />
+
+            <ImageView
+                android:id="@+id/camera_drop_doen_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_drop_down_24dp" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/AppLabelStyle"
+            android:text="@string/label_camera_key" />
+
+        <RelativeLayout
+            style="@style/AppUIElementStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp">
+
+            <Spinner
+                android:id="@+id/key_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/key_drop_doen_arrow"
+                android:background="@android:color/white"
+                android:drawSelectorOnTop="false" />
+
+            <ImageView
+                android:id="@+id/key_drop_doen_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_drop_down_24dp" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/AppLabelStyle"
+            android:text="@string/label_camera_key_result" />
+    </LinearLayout>
+</merge>
