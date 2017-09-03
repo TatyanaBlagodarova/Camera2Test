@@ -24,15 +24,21 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class TOSDialog extends Dialog implements android.view.View.OnClickListener {
+    public interface onAcceptedPPListener {
+        void onPPAccepted();
+    }
+
     public static final String ACCEPTED_STATUS = "ACCEPTED_STATUS";
     private final SharedPreferences sPref;
     public Context context;
     public Button yes, no;
     public WebView mWebView;
+    private onAcceptedPPListener mListener;
 
-    public TOSDialog(Context c) {
+    public TOSDialog(Context c, onAcceptedPPListener listener) {
         super(c, R.style.DialogTheme);
         this.context = c;
+        this.mListener = listener;
         sPref = ((Activity) context).getSharedPreferences(context.getString(R.string.app_name), MODE_PRIVATE);
     }
 
@@ -71,6 +77,9 @@ public class TOSDialog extends Dialog implements android.view.View.OnClickListen
                 ed.putBoolean(ACCEPTED_STATUS, true);
                 ed.commit();
                 dismiss();
+                if (mListener != null) {
+                    mListener.onPPAccepted();
+                }
                 break;
             case R.id.btn_no:
                 SharedPreferences.Editor ed1 = sPref.edit();

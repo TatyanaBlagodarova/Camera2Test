@@ -34,7 +34,7 @@ public class InfoFragment extends Fragment {
         rootView.findViewById(R.id.button_policy).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TOSDialog cdd = new TOSDialog(getActivity());
+                TOSDialog cdd = new TOSDialog(getActivity(), null);
                 cdd.show();
             }
         });

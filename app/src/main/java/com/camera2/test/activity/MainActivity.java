@@ -24,7 +24,7 @@ import static com.camera2.test.dialog.TOSDialog.ACCEPTED_STATUS;
 /**
  * Created by Tatyana Blagodarova on 5/25/17.
  */
-public class MainActivity extends AppCompatActivity implements ResultListener {
+public class MainActivity extends AppCompatActivity implements ResultListener, TOSDialog.onAcceptedPPListener {
     private CameraAnalyzeTask mCamera2AnalyzeTask;
     private ProgressBar mProgressBar;
 
@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity implements ResultListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (!PermissionsHelper.hasPermissionsGranted(this, PermissionsHelper.getAppPermissions())) {
-            PermissionsHelper.requestVideoPermissions(this);
-        }
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         findViewById(R.id.button_analyze).setOnClickListener(new View.OnClickListener() {
@@ -50,8 +46,22 @@ public class MainActivity extends AppCompatActivity implements ResultListener {
         Boolean statusAccepted = sPref.getBoolean(ACCEPTED_STATUS, false);
 
         if (!statusAccepted) {
-            TOSDialog cdd = new TOSDialog(this);
+            // show toast
+            TOSDialog cdd = new TOSDialog(this, this);
             cdd.show();
+        } else {
+            // show permissions
+            if (!PermissionsHelper.hasPermissionsGranted(this, PermissionsHelper.getAppPermissions())) {
+                PermissionsHelper.requestVideoPermissions(this);
+            }
+        }
+    }
+
+    @Override
+    public void onPPAccepted() {
+        // show permissions
+        if (!PermissionsHelper.hasPermissionsGranted(this, PermissionsHelper.getAppPermissions())) {
+            PermissionsHelper.requestVideoPermissions(this);
         }
     }
 
